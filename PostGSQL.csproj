@@ -1,0 +1,457 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A2E375D8-34A5-4FA1-8AD1-2EDBBFB14459}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PostGSQL</RootNamespace>
+    <AssemblyName>PostGSQL</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44315</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="addDefense.aspx" />
+    <Content Include="addExaminer.aspx" />
+    <Content Include="cancelThesis.aspx" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="CoursesPage.aspx" />
+    <Content Include="editSupervisorProfile.aspx" />
+    <Content Include="evaluatePR.aspx" />
+    <Content Include="examinerAddComment.aspx" />
+    <Content Include="examinerAddGrade.aspx" />
+    <Content Include="examinerEditProfile.aspx" />
+    <Content Include="examinerRegistration.aspx" />
+    <Content Include="examinerViewAllTheses.aspx" />
+    <Content Include="issueInstallments.aspx" />
+    <Content Include="issuePayment.aspx" />
+    <Content Include="listPublications.aspx" />
+    <Content Include="listSuperStudents.aspx" />
+    <Content Include="listSupervisors.aspx" />
+    <Content Include="listTheses.aspx" />
+    <Content Include="loggedAdmin.aspx" />
+    <Content Include="loggedExaminer.aspx" />
+    <Content Include="loggedGUCian.aspx" />
+    <Content Include="loggedNonGUCian.aspx" />
+    <Content Include="loggedSupervisor.aspx" />
+    <Content Include="loginPage.aspx" />
+    <Content Include="ProgressreportaddPage.aspx" />
+    <Content Include="ProgressreportfillPage.aspx" />
+    <Content Include="publicationPage.aspx" />
+    <Content Include="public\1.jpg" />
+    <Content Include="public\2.jpg" />
+    <Content Include="public\ex.jpg" />
+    <Content Include="public\exam.jpg" />
+    <Content Include="public\examiner.jpg" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="StudentEditPage.aspx" />
+    <Content Include="StudentProfilePage.aspx" />
+    <Content Include="studentRegistration.aspx" />
+    <Content Include="supervisorProfile.aspx" />
+    <Content Include="supervisorRegistration.aspx" />
+    <Content Include="ThesisPage.aspx" />
+    <Content Include="thesisSearchResults.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="addDefense.aspx.cs">
+      <DependentUpon>addDefense.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addDefense.aspx.designer.cs">
+      <DependentUpon>addDefense.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addExaminer.aspx.cs">
+      <DependentUpon>addExaminer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addExaminer.aspx.designer.cs">
+      <DependentUpon>addExaminer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cancelThesis.aspx.cs">
+      <DependentUpon>cancelThesis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cancelThesis.aspx.designer.cs">
+      <DependentUpon>cancelThesis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CoursesPage.aspx.cs">
+      <DependentUpon>CoursesPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CoursesPage.aspx.designer.cs">
+      <DependentUpon>CoursesPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="editSupervisorProfile.aspx.cs">
+      <DependentUpon>editSupervisorProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="editSupervisorProfile.aspx.designer.cs">
+      <DependentUpon>editSupervisorProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="evaluatePR.aspx.cs">
+      <DependentUpon>evaluatePR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="evaluatePR.aspx.designer.cs">
+      <DependentUpon>evaluatePR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="examinerAddComment.aspx.cs">
+      <DependentUpon>examinerAddComment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="examinerAddComment.aspx.designer.cs">
+      <DependentUpon>examinerAddComment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="examinerAddGrade.aspx.cs">
+      <DependentUpon>examinerAddGrade.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="examinerAddGrade.aspx.designer.cs">
+      <DependentUpon>examinerAddGrade.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="examinerEditProfile.aspx.cs">
+      <DependentUpon>examinerEditProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="examinerEditProfile.aspx.designer.cs">
+      <DependentUpon>examinerEditProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="examinerRegistration.aspx.cs">
+      <DependentUpon>examinerRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="examinerRegistration.aspx.designer.cs">
+      <DependentUpon>examinerRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="examinerViewAllTheses.aspx.cs">
+      <DependentUpon>examinerViewAllTheses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="examinerViewAllTheses.aspx.designer.cs">
+      <DependentUpon>examinerViewAllTheses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="issueInstallments.aspx.cs">
+      <DependentUpon>issueInstallments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="issueInstallments.aspx.designer.cs">
+      <DependentUpon>issueInstallments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="issuePayment.aspx.cs">
+      <DependentUpon>issuePayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="issuePayment.aspx.designer.cs">
+      <DependentUpon>issuePayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="listPublications.aspx.cs">
+      <DependentUpon>listPublications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="listPublications.aspx.designer.cs">
+      <DependentUpon>listPublications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="listSuperStudents.aspx.cs">
+      <DependentUpon>listSuperStudents.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="listSuperStudents.aspx.designer.cs">
+      <DependentUpon>listSuperStudents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="listSupervisors.aspx.cs">
+      <DependentUpon>listSupervisors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="listSupervisors.aspx.designer.cs">
+      <DependentUpon>listSupervisors.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="listTheses.aspx.cs">
+      <DependentUpon>listTheses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="listTheses.aspx.designer.cs">
+      <DependentUpon>listTheses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="loggedAdmin.aspx.cs">
+      <DependentUpon>loggedAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="loggedAdmin.aspx.designer.cs">
+      <DependentUpon>loggedAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="loggedExaminer.aspx.cs">
+      <DependentUpon>loggedExaminer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="loggedExaminer.aspx.designer.cs">
+      <DependentUpon>loggedExaminer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="loggedGUCian.aspx.cs">
+      <DependentUpon>loggedGUCian.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="loggedGUCian.aspx.designer.cs">
+      <DependentUpon>loggedGUCian.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="loggedNonGUCian.aspx.cs">
+      <DependentUpon>loggedNonGUCian.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="loggedNonGUCian.aspx.designer.cs">
+      <DependentUpon>loggedNonGUCian.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="loggedSupervisor.aspx.cs">
+      <DependentUpon>loggedSupervisor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="loggedSupervisor.aspx.designer.cs">
+      <DependentUpon>loggedSupervisor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="loginPage.aspx.cs">
+      <DependentUpon>loginPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="loginPage.aspx.designer.cs">
+      <DependentUpon>loginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProgressreportaddPage.aspx.cs">
+      <DependentUpon>ProgressreportaddPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProgressreportaddPage.aspx.designer.cs">
+      <DependentUpon>ProgressreportaddPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProgressreportfillPage.aspx.cs">
+      <DependentUpon>ProgressreportfillPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProgressreportfillPage.aspx.designer.cs">
+      <DependentUpon>ProgressreportfillPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="publicationPage.aspx.cs">
+      <DependentUpon>publicationPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="publicationPage.aspx.designer.cs">
+      <DependentUpon>publicationPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentEditPage.aspx.cs">
+      <DependentUpon>StudentEditPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentEditPage.aspx.designer.cs">
+      <DependentUpon>StudentEditPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentProfilePage.aspx.cs">
+      <DependentUpon>StudentProfilePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentProfilePage.aspx.designer.cs">
+      <DependentUpon>StudentProfilePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="studentRegistration.aspx.cs">
+      <DependentUpon>studentRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="studentRegistration.aspx.designer.cs">
+      <DependentUpon>studentRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="supervisorProfile.aspx.cs">
+      <DependentUpon>supervisorProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="supervisorProfile.aspx.designer.cs">
+      <DependentUpon>supervisorProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="supervisorRegistration.aspx.cs">
+      <DependentUpon>supervisorRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="supervisorRegistration.aspx.designer.cs">
+      <DependentUpon>supervisorRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ThesisPage.aspx.cs">
+      <DependentUpon>ThesisPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThesisPage.aspx.designer.cs">
+      <DependentUpon>ThesisPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="thesisSearchResults.aspx.cs">
+      <DependentUpon>thesisSearchResults.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="thesisSearchResults.aspx.designer.cs">
+      <DependentUpon>thesisSearchResults.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49991</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44315/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
